@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="omb_login">
+    <h3 class="omb_authTitle">
+      Login or <a routerLink="/register">Sign up</a>
+    </h3>
+    <div class="row omb_row-sm-offset-3 omb_socialButtons">
+      <div class="col-xs-12 col-sm-2">
+        <div class="btn btn-lg btn-block omb_btn-google">
+          <button
+            type="submit"
+            (click)="signInWithGoogle()"
+            class="btn btn-default"
+          >
+            <span class="hidden-xs googlePlusBtn">Google+</span>
+          </button>
+          <img class="googlePlusIcon"
+            src="data:image/png;base64,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"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row omb_row-sm-offset-3 omb_loginOr">
+      <div class="col-xs-12 col-sm-6">
+        <hr class="omb_hrOr" />
+        <span class="omb_spanOr">or</span>
+      </div>
+    </div>
+
+    <div class="row omb_row-sm-offset-3">
+      <div class="col-xs-12 col-sm-6">
+        <form class="omb_loginForm" (submit)="login()">
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              placeholder="Enter email"
+              [(ngModel)]="credentials.email"
+            />
+            <div class="alert alert-danger" *ngIf="isGmailAddress" role="alert">
+              Please use Google Sign In for Gmail Address!
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              placeholder="Password"
+              [(ngModel)]="credentials.password"
+            />
+            <div class="alert alert-danger" *ngIf="loginFailure" role="alert">
+              {{loginStatus}}
+            </div>
+          </div>
+          <button type="submit" class="btn btn-lg btn-primary btn-block loginBtn">
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

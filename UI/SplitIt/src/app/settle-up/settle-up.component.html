@@ -1,0 +1,39 @@
+<!-- Settle up modal dialog -->
+<header mat-dialog-title>Make a Settlement</header>
+<mat-dialog-content>
+    <div class="payment" *ngIf="!showCashPayment"><button class="cash-payment-btn" (click)="showPaymentContent()">
+      Record a cash payment
+  </button>
+        <button class="paypal-btn">
+        <img src="assets/paypal.png">
+      </button>
+    </div>
+    <!-- If Cash payment -->
+    <div *ngIf="showCashPayment">
+        <div class="payment-info"> <strong>You </strong>pay
+            <mat-form-field>
+                <mat-select required [(ngModel)]="settlement.paidTo">
+                    <mat-option *ngFor="let name of allfriendsArray" name="fieldName2" [value]="name">
+                        {{ name }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="cost_container">
+            <span class="currency_code">$</span>
+            <input type="text" class="cost" placeholder="0.00" value="" [(ngModel)]="settlement.amount" />
+        </div>
+    </div>
+
+</mat-dialog-content>
+<div class="footer">
+
+    <mat-dialog-actions>
+        <div class="footer-btns">
+            <button class="add-btn" mat-raised-button color="primary" (click)="onSettle()">
+        Settle
+      </button>
+            <button class="can-btn" mat-raised-button color="warn" (click)="close()">Cancel</button>
+        </div>
+    </mat-dialog-actions>
+</div>

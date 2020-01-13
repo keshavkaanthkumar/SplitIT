@@ -1,0 +1,78 @@
+<!-- Add expense modal dialog -->
+<header mat-dialog-title>Add an Expense</header>
+<mat-dialog-content>
+    <div class="with_field ">
+        <!-- Chip list to add emails -->
+        <div class="chip-list">
+            <mat-form-field class="example-chip-list">
+                <mat-chip-list #chipList aria-label="email selection">
+                    <mat-chip *ngFor="let email of emails" [selectable]="selectable" [removable]="removable" (removed)="remove(email)">
+                        {{ email.name }}
+                        <mat-icon matChipRemove *ngIf="email.name != 'you' && removable">cancel</mat-icon>
+                    </mat-chip>
+                    <input placeholder="Add emails/names of people involved..." #friendInput [formControl]="friendCtrl" [matAutocomplete]="auto" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)"
+                    />
+                </mat-chip-list>
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                    <mat-option *ngFor="let friend of filteredFriends | async" [value]="friend">
+                        {{ friend }}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </div>
+    </div>
+    <!-- Description and amount fields -->
+    <div class="main-fields">
+        <input type="text" class="description" [(ngModel)]="expense.title" placeholder="Enter a description" value="" />
+        <div class="cost_container">
+            <span class="currency_code">$</span>
+            <input type="text" [(ngModel)]="expense.amount" class="cost" placeholder="0.00" value="" />
+        </div>
+    </div>
+    <!-- Paid by and expense-split fields -->
+    <div class="paidandsplit">
+        <span>
+        <mat-form-field>
+          <mat-label>Paid by:</mat-label>
+          <mat-select required [(ngModel)]="expense.paidBy">
+            <!-- <mat-option name="fieldName" value="you">You</mat-option> -->
+            <mat-option
+              *ngFor="let email of emails"
+              name="fieldName2"
+              [value]="email.name"
+            >
+              {{ email.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <span class="split-text"></span
+      ></span>
+        <!-- Split unequally -->
+        <mat-form-field>
+            <mat-label>And Split</mat-label>
+            <mat-select required [(ngModel)]="splitstatus">
+                <mat-option name="fieldName" value="equally">Equally</mat-option>
+                <mat-option name="fieldName2" value="unequally">
+                    Unequally
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div *ngIf="splitstatus === 'equally'; else elseBlock"></div>
+    <ng-template #elseBlock>
+        <div class="split-list row" *ngFor="let email of emails">
+            <label class="col-md-7">{{ email.name }}</label>
+            <input class="col-md-3" placeholder="split..." [(ngModel)]="email.split" />
+
+        </div>
+    </ng-template>
+</mat-dialog-content>
+<div class="footer">
+    <!-- Add and cancel buttons -->
+    <mat-dialog-actions>
+        <button class="add-btn" mat-raised-button color="primary" (click)="onAdd()">
+    Add
+  </button>
+        <button class="can-btn" mat-raised-button color="warn" (click)="close()">Cancel</button>
+    </mat-dialog-actions>
+</div>

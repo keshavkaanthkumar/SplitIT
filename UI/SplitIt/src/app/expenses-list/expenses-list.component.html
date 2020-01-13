@@ -1,0 +1,63 @@
+<input
+  class="form-control"
+  type="text"
+  name="search"
+  [(ngModel)]="searchText"
+  autocomplete="off"
+  placeholder="&#61442;  Start searching for a expense"
+/>
+
+<mat-list
+  role="list"
+  *ngFor="
+    let expense of expensesList
+      | filter: searchText
+      | paginate: { itemsPerPage: 20, currentPage: p }
+  "
+>
+  <mat-list-item role="listitem"
+    ><div class="container">
+      <div class="row">
+        <div class="col-2 mediumdate">
+          {{ expense.date }}
+        </div>
+        <div class="col-1 categoryDiv">
+          <img
+            class="category"
+            src="https://s3.amazonaws.com/splitwise/uploads/category/icon/square_v2/food-and-drink/groceries@2x.png"
+          />
+        </div>
+        <div class="col-2 expenseTitle">
+          {{ expense.title }}
+        </div>
+        <div class="col-3">
+          <span class="paidByText">{{ expense.paidByName }} paid </span>
+          <span class="amountPaid"
+            >{{ expense.currency }}{{ expense.amount }}</span
+          >
+        </div>
+        <div class="col-3">
+          <span class="paidByText">{{ expense.paidByName }} lent </span>
+          <span
+            [ngClass]="expense.paidBy === userEmail ? 'greenStyle' : 'redStyle'"
+            >{{ expense.currency }}{{ expense.lent }}</span
+          >
+        </div>
+        <div class="col-1">
+          <i
+            title="View expense!"
+            (click)="viewExpense(expense)"
+            class="fa fa-eye viewIcon"
+          ></i>
+          <i
+            title="Delete expense!"
+            (click)="deleteExpense(expense._id)"
+            class="fa fa-trash trashIcon"
+          ></i>
+        </div>
+      </div>
+    </div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+</mat-list>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

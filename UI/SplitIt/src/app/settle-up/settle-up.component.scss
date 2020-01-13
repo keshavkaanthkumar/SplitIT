@@ -1,0 +1,63 @@
+@import '../../main.scss';
+header {
+    background: $base-color;
+    color: #fff;
+    padding: 10px;
+    border-bottom: 1px solid $base-color;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+.payment-info {
+    margin-left: 40px;
+    width: 78%;
+}
+
+.add-btn {
+    margin-right: 10px;
+    width: 80px;
+}
+
+.cash-payment-btn {
+    width: 100%;
+    font-size: 16px;
+    margin: 8px 0;
+    height: 40px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    background: lightblue;
+}
+
+.paypal-btn {
+    width: 100%;
+    font-size: 16px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    background: lightblue;
+    height: 40px;
+    img {
+        height: 20px;
+        width: 100px
+    }
+}
+
+.footer {
+    margin-top: 50px;
+    margin-left: 25%;
+}
+
+.cost_container {
+    margin: 0 auto;
+    width: 30%;
+    input {
+        font-size: 36px;
+        text-align: center;
+        outline: none;
+        -webkit-appearance: none;
+        width: 80px;
+        border: none;
+    }
+}

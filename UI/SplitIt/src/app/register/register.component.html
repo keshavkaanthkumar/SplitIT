@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="omb_login">
+        <h3 class="omb_authTitle">
+            Register
+        </h3>
+
+        <div class="row omb_row-sm-offset-3">
+            <div class="col-xs-12 col-sm-6">
+                <p class="lead">
+                    Already a member? Please <a routerLink="/login">log in</a> instead.
+                </p>
+                <div class="row omb_row-sm-offset-3">
+                    <div class="col-xs-12 col-sm-12">
+                        <form class="omb_loginForm" (submit)="register()">
+                            <div class="form-group">
+                                <label for="fullname">Full name</label>
+                                <input type="text" class="form-control" name="name" placeholder="Enter your name" [(ngModel)]="credentials.name" />
+                                <!-- <div class="alert alert-danger">
+                                    role="alert" > Please use Google Sign In for Gmail Address!
+                                </div> -->
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" class="form-control" name="email" placeholder="Enter email" [(ngModel)]="credentials.email" />
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="credentials.password" />
+                            </div>
+                            <div class="alert alert-danger" *ngIf="inComplete" role="alert">
+                                Please input the remaining fields!
+                            </div>
+                            <div class="alert alert-danger" *ngIf="userNameExists" role="alert">
+                                {{ existsMessage }}
+                            </div>
+
+                            <button type="submit" class="btn btn-lg btn-primary btn-block loginBtn">
+                Register
+              </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

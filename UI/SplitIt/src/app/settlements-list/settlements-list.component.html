@@ -1,0 +1,32 @@
+<input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a settlement" />
+
+<mat-list role="list" *ngFor="
+    let settlement of settlementsList
+      | filter: searchText
+      | paginate: { itemsPerPage: 20, currentPage: p }
+  ">
+    <mat-list-item role="listitem">
+        <div class="container">
+            <div class="row">
+                <div class="col-2 mediumdate">
+                    {{ settlement.date }}
+                </div>
+                <div class="col-1 categoryDiv">
+                    <img src="https://dx0qysuen8cbs.cloudfront.net/assets/fat_rabbit/app/payment-icon-black-95a84e938aaf0309a3c8c0f8c04992ab52a12c852a4f24bf097ebf8581d456a6.png" alt="Payment icon black" />
+                </div>
+                <div class="col-3">
+                    <span class="paidByText">{{ settlement.paidBy }} settled </span>
+                    <span class="amountPaid">${{ settlement.amount }}</span>
+                </div>
+                <div class="col-3">
+                    <span class="paidByText"> to {{ settlement.paidTo }} </span>
+                </div>
+                <div class="col-1">
+                    <i title="Delete settlement!" (click)="deleteSettlement(settlement._id)" class="fa fa-trash trashIcon"></i>
+                </div>
+            </div>
+        </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+</mat-list>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

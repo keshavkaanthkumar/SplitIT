@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/angular-notifier/styles.scss";
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+* {
+    font-family: "Arial", "Helvetica Neue", sans-serif;
+}
+
+.mat-tab-body-content {
+    overflow: hidden !important;
+}

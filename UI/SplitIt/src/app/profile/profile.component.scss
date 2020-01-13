@@ -1,0 +1,175 @@
+.mat-list-base {
+  border: 1px solid lightgray;
+}
+
+:host {
+  > .container {
+    max-width: 1264px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    background: none;
+  }
+  ::ng-deep {
+    .mat-tab-group {
+      flex-direction: row;
+    }
+    .mat-tab-header {
+      border-bottom: none;
+    }
+    .mat-tab-header-pagination {
+      display: none !important;
+    }
+    .mat-tab-labels {
+      flex-direction: column;
+    }
+    .mat-ink-bar {
+      height: 100%;
+      left: 98% !important;
+    }
+    .mat-tab-body-wrapper {
+      flex: 1 1 auto;
+      border: 2px solid darkgray;
+    }
+    .mat-tab-label {
+      font-size: medium;
+      max-width: 200px;
+      text-align: left;
+    }
+    .mat-tab-label-active {
+      color: #00adee;
+      font-weight: bold;
+    }
+  }
+}
+.friendLabelStyle {
+  white-space: pre-wrap;
+}
+.dashboardlist {
+  padding-top: 0px;
+}
+.oweAmount,
+.negativetotalBalance,
+.youOweAmount {
+  color: red;
+}
+.splitWiseIcon {
+  width: 25px;
+}
+
+.titleOwe {
+  font-weight: bold;
+}
+
+.getAmount,
+.positiveTotalBalance,
+.owesYouAmount {
+  color: green;
+}
+
+.usersList {
+  height: 60px !important;
+}
+
+.usernamestyle {
+  font-size: large;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  flex: 1 0 auto;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.content {
+  box-sizing: content-box;
+  margin: 0 auto;
+  padding: 15px;
+  width: 1264px;
+  background-color: #ffffff;
+}
+
+.rightBorder {
+  border-right: 1px solid;
+}
+
+.dashboardStatus {
+  text-align: center;
+}
+
+.divider {
+  border: 1px solid black;
+  background-color: black;
+}
+
+.detailsRow {
+  padding-top: 20px;
+  padding-left: 100px;
+  margin: 0 auto;
+}
+
+.balanceData {
+  background-color: #ddd;
+}
+.allExpensesHeading {
+  height: 60px;
+  padding: 15px;
+  background-color: #ddd;
+  position: relative;
+  left: 15px;
+}
+.contactIcon {
+  font-size: 24px;
+  padding: 10px;
+}
+.photoStyle {
+  width: 30px;
+  height: 30px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  border-radius: 16px;
+  border: 1px solid #ccc;
+ // float: left;
+  margin: 3px 10px 0 1px;
+}
+
+mat-list-item.oweDetails.mat-list-item {
+  height: 500px;
+}
+.mat-tab-body-content {
+  overflow: hidden;
+}
+.content {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.content,
+.main-content {
+  &::before,
+  &::after {
+    content: "";
+    display: table;
+  }
+  &::after {
+    clear: both;
+  }
+}
+.DIV_1 {
+  padding-left: 40px;
+}
+.H2_2 {
+  text-transform: uppercase;
+  color: gray;
+}
+.DIV_9 {
+  color: red;
+}
+.DIV_12 {
+  color: green;
+}

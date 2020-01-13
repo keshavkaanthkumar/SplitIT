@@ -1,0 +1,41 @@
+.mediumdate,
+.paidByText {
+  color: gray;
+}
+
+.category {
+  width: 30px;
+  height: 30px;
+}
+
+.search-hero {
+  max-width: 500px;
+  padding-bottom: 50px;
+  margin: auto;
+}
+
+.form-control {
+  box-shadow: 0 10px 40px 0 #b0c1d9;
+}
+.form-control::placeholder {
+  font-family: FontAwesome;
+}
+.trashIcon {
+  font-size: 22px;
+  color: indianred;
+}
+.viewIcon {
+  font-size: 22px;
+  color: green;
+}
+
+.expenseTitle,
+.amountPaid {
+  font-weight: bold;
+}
+.greenStyle {
+  color: green;
+}
+.redStyle {
+  color: red;
+}

@@ -1,0 +1,136 @@
+@import '../../main.scss';
+@mixin input {
+    font-size: 20px;
+    border-bottom: 1px dashed #ccc !important;
+    margin: 5px auto;
+    width: 40%;
+    text-align: center;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+header {
+    background: $base-color;
+    color: #fff;
+    padding: 10px;
+    border-bottom: 1px solid $base-color;
+    font-size: 18px;
+    margin-bottom: 0px;
+}
+
+.example-chip-list {
+    width: 100%;
+}
+
+.chip-list {
+    width: 100%;
+    margin-top: 14px;
+}
+
+.description::placeholder {
+    /* Firefox, Chrome, Opera */
+    text-align: center;
+}
+
+.main-fields {
+    float: inherit;
+}
+
+input.description {
+    @include input();
+}
+
+input {
+    outline: none;
+    -webkit-appearance: none;
+    width: 100px;
+    border: none;
+}
+
+.paidandsplit {
+    margin-top: 30px;
+    /* margin: 0 auto; */
+    width: 80%;
+    margin-left: 84px;
+}
+
+.split-list {
+    margin: 0 auto;
+    width: 70%;
+    width: 50%;
+    text-align: center;
+    label {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+}
+
+.eql-btn {
+    margin-left: 20px;
+}
+
+.split-text {
+    margin-left: 20px;
+}
+
+.split-form label {
+    margin-top: 0px;
+    margin-bottom: 0px
+}
+
+.split-form input {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 170px;
+}
+
+.dismiss {
+    float: right;
+    font-size: 18px;
+    color: red;
+    text-decoration: none;
+    background: $base-color;
+}
+
+.cost_container {
+    margin: 0 auto;
+    width: 20%;
+    input {
+        font-size: 36px;
+        text-align: center;
+        outline: none;
+        -webkit-appearance: none;
+        width: 80px;
+        border: none;
+    }
+}
+
+.with {
+    position: absolute;
+    left: 10px;
+    top: 11px;
+    margin-left: 220px;
+    align-content: center;
+}
+
+.with_field {
+    position: relative;
+    padding: 4px;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.add-btn {
+    margin-right: 10px;
+    width: 80px;
+}
+
+.footer {
+    margin-top: 30px;
+    margin-left: 35%;
+}
+
+.cost {
+    font-size: 36px;
+    text-align: center;
+}

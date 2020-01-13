@@ -1,0 +1,236 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<div class="container">
+    <div class="container">
+        <div class="content">
+            <div class="main-content">
+                <mat-tab-group>
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            <i class="fa fa-tachometer fa-lg"></i>
+                            <span>Dashboard</span>
+                        </ng-template>
+
+                        <mat-list class="dashboardlist">
+                            <mat-list-item class="balanceData">
+                                <div class="col-3">
+                                    <h4>Dashboard</h4>
+                                </div>
+                                <div class="col-2">
+                                    <button mat-raised-button color="primary">
+                    <i class="fa fa-upload" aria-hidden="true"></i>
+                    FairPay
+                    <img
+                      class="splitWiseIcon"
+                      src="https://ph-files.imgix.net/42e55432-6ba4-401f-85de-7ee2a617b0b3?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=80&h=80&fit=crop&dpr=2"
+                    />
+                  </button>
+                                </div>
+
+                                <div class="col-2">
+                                    <button mat-raised-button color="primary" (click)="importExpenses()">
+                    <i class="fa fa-upload" aria-hidden="true"></i>
+                    SplitWise
+                    <img
+                      class="splitWiseIcon"
+                      src="data:image/png;base64,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"
+                    />
+                  </button>
+                                </div>
+                                <div class="col-2">
+                                    <button mat-raised-button color="primary" (click)="addExpense()">
+                    Add an expense
+                  </button>
+                                </div>
+                                <div class="col-md-3">
+                                    <button mat-raised-button color="warn" (click)="settleup()">
+                    Settle Expense
+                  </button>
+                                </div>
+                            </mat-list-item>
+                            <mat-divider class="divider"></mat-divider>
+                            <mat-list-item class="balanceData">
+                                <div class="col-md-4 rightBorder dashboardStatus">
+                                    Total Balance <br />
+                                    <span [ngClass]="
+                      details.dashboard.totalBalance < 0
+                        ? 'negativetotalBalance'
+                        : 'positiveTotalBalance'
+                    ">${{ details.dashboard.totalBalance }}</span
+                  >
+                </div>
+                <div class="col-md-4 rightBorder dashboardStatus">
+                  You owe <br /><span class="oweAmount"
+                    >${{ details.dashboard.owe.amount }}</span
+                  >
+                </div>
+                <div class="col-md-4 dashboardStatus">
+                  You are owed <br /><span class="getAmount"
+                    >${{ details.dashboard.get.amount }}</span
+                  >
+                </div>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+              <div class="row detailsRow">
+                <div class="col-md-5">
+                  <span class="titleOwe">YOU OWE</span>
+                                    <div *ngIf="details.dashboard.owe.oweToUsers.length > 0" class="listStyle">
+                                        <mat-list>
+                                            <mat-list-item class="usersList" *ngFor="let oweUser of details.dashboard.owe.oweToUsers">
+                                                <p>
+                                                    <img [src]="
+                              oweUser.photo != undefined
+                                ? oweUser.photo
+                                : 'https://www.apkmirror.com/wp-content/uploads/2017/05/5914b36635e63.png'
+                            " class="photoStyle" />
+                                                    <span class="usernamestyle">{{ oweUser.name }}</span
+                          ><br />
+                          <span class="youOweAmount">
+                            You owe ${{ oweUser.amount }}
+                          </span>
+                                                </p>
+                                                <mat-divider></mat-divider>
+                                            </mat-list-item>
+                                        </mat-list>
+                                    </div>
+                                </div>
+                                <mat-divider class="divider"></mat-divider>
+                                <div class="col-md-5">
+                                    <span class="titleOwe">YOU ARE OWED</span>
+                                    <div class="listStyle" *ngIf="details.dashboard.get.getFromUsers.length > 0">
+                                        <mat-list>
+                                            <mat-list-item class="usersList" *ngFor="
+                          let getUser of details.dashboard.get.getFromUsers
+                        ">
+                                                <p>
+                                                    <img [src]="
+                              getUser.photo != undefined
+                                ? getUser.photo
+                                : 'https://www.apkmirror.com/wp-content/uploads/2017/05/5914b36635e63.png'
+                            " class="photoStyle" />
+                                                    <span class="usernamestyle">{{ getUser.name }}</span
+                          ><br />
+                          <span class="owesYouAmount">
+                            owes you ${{ getUser.amount }}</span
+                          >
+                        </p>
+                        <mat-divider></mat-divider>
+                      </mat-list-item>
+                    </mat-list>
+                  </div>
+                </div>
+              </div>
+
+              <mat-list-item class="oweDetails"> </mat-list-item>
+            </mat-list>
+          </mat-tab>
+          All expenses list
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <i class="fa fa-money fa-lg"></i>
+              <span>All Expenses</span>
+                                                    </ng-template>
+
+                                                    <div class="row allExpensesHeading">
+                                                        <div class="col-7">
+                                                            <h4>All Expenses</h4>
+                                                        </div>
+                                                        <div class="col-2">
+                                                            <button mat-raised-button color="primary" (click)="addExpense()">
+                  Add an expense
+                </button>
+                                                        </div>
+                                                    </div>
+                                                    <app-expenses-list (openModalWindowEvent)="viewExpense($event)" (deleteEvent)="deleteExpense($event)" [userEmail]="details.userInfo.email" [expensesList]="details.expenses">
+                                                    </app-expenses-list>
+                    </mat-tab>
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            <i class="fa fa-money fa-lg"></i>
+                            <span>All Settlements</span>
+                        </ng-template>
+
+                        <div class="row allExpensesHeading">
+                            <div class="col-7">
+                                <h4>All Settlements</h4>
+                            </div>
+                            <div class="col-md-3">
+                                <button mat-raised-button color="warn" (click)="settleup()">
+                  Settle Expense
+                </button>
+                            </div>
+                        </div>
+                        <app-settlements-list (deleteEvent)="deleteSettlement($event)" [userEmail]="details.userInfo.email" [settlementsList]="settlements">
+                        </app-settlements-list>
+                    </mat-tab>
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            <i class="fa fa-address-book fa-lg"></i>
+                            <span>Friends</span>
+                        </ng-template>
+                        <mat-tab-group>
+                            <mat-tab *ngFor="let friend of details.friends">
+                                <ng-template mat-tab-label>
+                                    <div ngClass="friendLabelStyle">
+                                        <span>{{ friend.name }}</span>
+                                    </div>
+                                </ng-template>
+                                <app-expenses-list (openModalWindowEvent)="viewExpense($event)" (deleteEvent)="deleteExpense($event)" [userEmail]="details.userInfo.email" [expensesList]="friend.linkedExpenses">
+                                </app-expenses-list>
+                            </mat-tab>
+                        </mat-tab-group>
+                    </mat-tab>
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            <i class="fa fa-line-chart fa-lg"></i>
+                            <span>Trends</span>
+                        </ng-template>
+                        <div class="DIV_1">
+                            <h3 class="H2_2">
+                                Trends so far
+                            </h3>
+                            <br />
+                            <div class="DIV_3">
+                                <div class="DIV_4">
+                                    <h5 class="H4_5">
+                                        Total balance
+                                    </h5>
+                                    <div class="DIV_6">
+                                        <span [ngClass]="
+                        details.trends.totalBalance < 0
+                          ? 'negativetotalBalance'
+                          : 'positiveTotalBalance'
+                      ">${{ details.trends.totalBalance }}</span
+                    >
+                  </div>
+                </div>
+                <br />
+                <div class="DIV_7">
+                  <h5 class="H4_8">
+                    Your total share
+                  </h5>
+                  <div class="DIV_9">${{ details.trends.totalShare }}</div>
+                </div>
+                <br />
+                <div class="DIV_10">
+                  <h5 class="H4_11">
+                    Payments made
+                  </h5>
+                  <div class="DIV_12">${{ details.trends.paymentsMade }}</div>
+                </div>
+                <br />
+                <div class="DIV_16">
+                  <h5 class="H4_17">
+                    Total change in balance
+                  </h5>
+                  <div class="DIV_18">
+                    ${{ details.trends.totalChangeInBalance }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</div>

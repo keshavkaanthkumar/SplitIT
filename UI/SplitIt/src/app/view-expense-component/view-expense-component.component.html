@@ -1,0 +1,53 @@
+<div id="DIV_1">
+  <table id="TABLE_2">
+    <tbody id="TBODY_3">
+      <tr id="TR_4">
+        <td colspan="2" id="TD_5">
+          <img
+            src="https://s3.amazonaws.com/splitwise/uploads/category/icon/square_v2/food-and-drink/groceries@2x.png"
+            alt="Groceries"
+            id="IMG_6"
+          />
+          {{ epenseDetails.title }}
+          <div id="DIV_8">
+            {{ epenseDetails.currency }}{{ epenseDetails.amount }}
+          </div>
+          <h5>Paid total expense by {{ epenseDetails.paidByName }}</h5>
+          <div id="DIV_9">
+            Added by {{ epenseDetails.addedByName }} on {{ epenseDetails.date
+            }}<br id="BR_10" />
+          </div>
+          <hr id="HR_12" />
+        </td>
+      </tr>
+      <tr id="TR_13">
+        <td id="TD_14">
+          <table id="TABLE_15">
+            <tbody id="TBODY_16">
+              <tr *ngFor="let split of epenseDetails.split" id="TR_17">
+                <td id="TD_18">
+                  <img
+                    src="{{
+                      split.photo != undefined
+                        ? split.photo
+                        : 'https://www.apkmirror.com/wp-content/uploads/2017/05/5914b36635e63.png'
+                    }}"
+                    alt="User avatar"
+                    id="IMG_19"
+                  />
+                </td>
+                <td id="TD_20">
+                  <strong id="STRONG_21">{{ split.userName }}</strong>
+                  owes
+                  <strong id="STRONG_23"
+                    >{{ epenseDetails.currency }}{{ split.owes }}</strong
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
